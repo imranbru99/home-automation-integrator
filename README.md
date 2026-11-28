@@ -1,56 +1,80 @@
-# Lumenridge Automation — Laravel 13 + Filament 3 Website, ERP & AI
+# Lumenridge Automation
 
-Production-ready SME platform for a Boulder / Front Range Colorado **home automation integrator**: public marketing site, Filament admin ERP, knowledge base, and AI assistants for chat, content, automation ideas, and troubleshooting.
+Full-stack business platform for a home automation integrator company — public website, Filament admin ERP, knowledge base, and AI assistants in one Laravel app.
 
 ## Features
-- 🏠 Premium public site (hero, services, about, dashboard preview, contact)
-- 💡 Service detail pages for smart lighting, security, climate, multi-room AV, motorized shades & network infrastructure
-- 📰 Blog / knowledge content with seeded posts
-- 📬 Contact form that stores leads in the database
-- 💬 Floating WhatsApp button + public AI chatbot widget
-- 🗂️ Filament ERP at `/admin` (customers, jobs, inventory, invoices, payments, appointments)
-- 👥 Roles: Admin, Manager, Staff
-- 📊 Reports dashboard with stats + charts
-- ⚙️ Settings page for company phone, WhatsApp, tax rate, and more
-- 🤖 Admin AI Studio (blog/descriptions, automation suggestions, troubleshooting)
-- 📚 Knowledge base: common issues, guides, admin manual, troubleshooting
-- 🌱 Realistic demo seeders for a full walkthrough
 
-## Tech Stack
-- Laravel 13
-- Filament 3
-- Livewire + Alpine.js
-- Tailwind-friendly public CSS (custom Lumenridge theme)
-- MySQL or SQLite
-- Spatie Laravel Permission
-- OpenAI API with Gemini fallback keys (demo FAQ mode when keys are empty)
+### Public website
+- Marketing home with hero, services, about, and contact
+- Dedicated service pages for the home automation integrator offer set
+- Blog / journal with seeded posts
+- Knowledge base (common issues, guides, admin notes, troubleshooting)
+- Contact form that saves leads to the database
+- Floating WhatsApp button
+- Public AI chatbot (FAQ-trained; live API when keys are set)
 
-## Installation
+### Admin ERP (`/admin`)
+- Customers / clients
+- Jobs / projects / orders
+- Inventory & products
+- Invoices & payments
+- Appointments / scheduling
+- Roles: Admin, Manager, Staff (Spatie Permission)
+- Reports dashboard with stats and charts
+- Company settings
+- AI Studio: content drafts, automation ideas, troubleshooting help
+- Seeded demo data for a complete walkthrough
+
+### AI
+- Public chatbot widget
+- Admin content generator
+- Automation suggestions panel
+- Troubleshooting assistant
+- OpenAI or Gemini via HTTP — FAQ demo mode when keys are empty
+
+## Technology
+
+| Layer | Stack |
+|-------|--------|
+| Backend | Laravel 13, PHP 8.3+ |
+| Admin | Filament 3 |
+| UI | Livewire, Alpine.js, Tailwind CSS |
+| Auth / roles | Spatie Laravel Permission |
+| Database | MySQL or SQLite (local demo) |
+| AI | OpenAI / Gemini REST (`App\Services\AiService`) |
+| Tooling | Composer, Vite, Artisan |
+
+## Getting started
+
 ```bash
 git clone https://github.com/imranbru99/home-automation-integrator.git
 cd home-automation-integrator
 composer install
-copy .env.example .env   # Windows
+cp .env.example .env
 php artisan key:generate
-# Ensure database/database.sqlite exists for SQLite demo
+# SQLite demo: create database/database.sqlite if needed
 php artisan migrate --seed
 php artisan serve
 ```
 
-Admin ERP: `http://localhost:8000/admin`  
-Public site: `http://localhost:8000`
+| Surface | URL |
+|---------|-----|
+| Public site | http://localhost:8000 |
+| Admin | http://localhost:8000/admin |
 
-### Admin login
-- Email: `admin@example.com`
-- Password: `password`
+**Demo login:** `admin@example.com` / `password`
 
-Optional AI keys in `.env`:
+Optional in `.env`:
+
 ```
 OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4o-mini
 GEMINI_API_KEY=
+GEMINI_MODEL=gemini-1.5-flash
 ```
 
-## Screenshots / Visual Dashboard
+## Screenshots
+
 ![Luxury modern smart home exterior](https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80)
 
 ![Architectural smart lighting](https://images.unsplash.com/photo-1565814329452-517dfc5c8d0e?auto=format&fit=crop&w=1600&q=80)
@@ -59,11 +83,9 @@ GEMINI_API_KEY=
 
 ![Home theater AV room](https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1600&q=80)
 
-## Live Demo
-Placeholder — deploy to your host and share the public URL + `/admin` demo credentials.
+## Live demo
 
-## SEO-optimized repo description suggestion
-`Lumenridge Automation — Laravel 13 + Filament 3 website, ERP, and AI chatbot for US home automation integrators (lighting, security, climate, AV, shades).`
+Deploy to Forge, Vapor, or any PHP 8.3+ host, then replace this section with your public URL.
 
 ---
 
@@ -82,3 +104,4 @@ Delivery Mode: Async-ready, Slack, Discord, Jira, GitHub, and production-first a
 | 📧 Direct Email | me@imrandev.bd | Send Email ↗ |
 | 🐦 X (Twitter) | @imrandev_bd | Follow ↗ |
 | 📺 YouTube Tech | @ImranDevBD | Subscribe ↗ |
+
